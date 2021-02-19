@@ -31,6 +31,6 @@ Route::get('/about','PagesController@about');
 
 */
 
-Route::resource('posts' , 'PostsController'); 
+Route::resource('posts','PostsController'); 
 
 
