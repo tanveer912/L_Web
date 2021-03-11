@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Model\Post;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use App\Post;
+use DB;
 
 class PostsController extends Controller
 {
@@ -18,8 +18,8 @@ class PostsController extends Controller
     public function index()
     {
         
-        
-        return view ('posts.index');
+        $post = Post::all();
+        return view ('posts.index')->with('posts' , $post);
         
 
     }
@@ -31,6 +31,12 @@ class PostsController extends Controller
      */
     public function create()
     {
+        
+        
+        
+      return view('posts.create');
+        
+        
         //
     }
 
@@ -53,6 +59,12 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+        
+        
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
+        
+        
         //
     }
 
